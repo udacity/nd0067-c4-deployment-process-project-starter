@@ -31,5 +31,5 @@ jobs:
             npm run frontend:Build
       - run:
           name: Api Build
-          command: |  
-          npm run api:build
+          command: |
+            npm run api:build
