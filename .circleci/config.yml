@@ -1,0 +1,39 @@
+version: 2.1
+jobs:
+  Integration:
+    docker:
+      - image: circleci/node:14
+    steps:
+      - checkout
+      - run:
+          name: Install Front-End Dependencies
+          command: |
+            npm run frontend:install
+      - run:
+          name: Install api Dependencies
+          command: |
+            npm run api:install
+      - run:
+          name: Front-End Lint
+          command: |
+            npm run frontend:lint
+      - run:
+          name: Front-End Unit Tests
+          command: |
+            npm run frontend:test
+      - run:
+          name: Front-End E2E
+          command: |
+            npm run frontend:e2e
+      - run:
+          name: Front-End Build
+          command: |
+            npm run frontend:Build
+      - run:
+          name: Api Build
+          command: |  
+          npm run api:build
+  
+  # Deployment:
+  #   docker:
+  #     - image:    

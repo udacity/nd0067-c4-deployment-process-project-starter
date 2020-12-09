@@ -1,3 +1,4 @@
+import * as dotenv from "dotenv";
 import cors from "cors";
 import express from "express";
 import { sequelize } from "./sequelize";
@@ -8,6 +9,9 @@ import bodyParser from "body-parser";
 import { V0_FEED_MODELS, V0_USER_MODELS } from "./controllers/v0/model.index";
 
 (async () => {
+  dotenv.config();
+  console.log(process.env.URL);
+
   await sequelize.addModels(V0_FEED_MODELS);
   await sequelize.addModels(V0_USER_MODELS);
   await sequelize.sync();
