@@ -6,9 +6,13 @@
         "frontend:test": "cd udagram-frontend && npm run test",
         "frontend:e2e": "cd udagram-frontend && npm run e2e",
         "frontend:lint": "cd udagram-frontend && npm run lint",
+        "frontend:prod": "cd udagram-frontend && npm run prod",
         "api:install": "cd udagram-api && npm install",
         "api:build": "cd udagram-api && npm run build",
         "api:start": "cd udagram-api && npm run dev",
         "api:prod": "cd udagram-api && npm run prod"
+    },
+    "devDependencies": {
+        "serve": "^11.3.2"
     }
 }
