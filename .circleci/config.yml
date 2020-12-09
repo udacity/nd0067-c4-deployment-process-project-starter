@@ -17,10 +17,6 @@ jobs:
           name: Front-End Lint
           command: |
             cd starter && npm run frontend:lint
-      # - run:
-      #     name: Front-End Unit Tests
-      #     command: |
-      #       cd starter && npm run frontend:test
       - run:
           name: Front-End Build
           command: |
