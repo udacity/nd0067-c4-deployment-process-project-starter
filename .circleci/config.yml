@@ -24,7 +24,7 @@ jobs:
       - run:
           name: Front-End Build
           command: |
-            cd starter && npm run frontend:Build
+            cd starter && npm run frontend:build
       - run:
           name: Api Build
           command: |
