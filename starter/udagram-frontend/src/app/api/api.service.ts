@@ -47,6 +47,7 @@ export class ApiService {
       .pipe(map(ApiService.extractData));
 
     return req.toPromise().catch((e) => {
+      console.log(e);
       ApiService.handleError(e);
       throw e;
     });
