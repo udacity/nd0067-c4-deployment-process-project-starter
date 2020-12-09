@@ -2,7 +2,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 export const config = {
-  username: process.env.POSTGRES_USERNAME,
+  username: `${process.env.POSTGRES_USERNAME}`,
   password: process.env.POSTGRES_PASSWORD,
   database: process.env.POSTGRES_DB,
   port: Number(process.env.PORT),
