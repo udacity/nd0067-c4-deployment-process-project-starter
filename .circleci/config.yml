@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  Integration:
+  build:
     docker:
       - image: circleci/node:14
     steps:
