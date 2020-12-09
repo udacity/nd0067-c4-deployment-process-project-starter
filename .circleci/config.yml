@@ -21,3 +21,11 @@ jobs:
           name: Front-End Unit Tests
           command: |
             cd starter && npm run frontend:test
+      - run:
+          name: Front-End Build
+          command: |
+            npm run frontend:Build
+      - run:
+          name: Api Build
+          command: |
+            npm run api:build
