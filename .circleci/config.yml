@@ -13,3 +13,11 @@ jobs:
           name: Install api Dependencies
           command: |
             cd starter && npm run api:install
+      - run:
+          name: Front-End Lint
+          command: |
+            cd starter && npm run frontend:lint
+      - run:
+          name: Front-End Unit Tests
+          command: |
+            cd starter && npm run frontend:test
