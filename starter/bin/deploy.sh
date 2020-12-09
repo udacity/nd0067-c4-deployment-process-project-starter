@@ -1,9 +1,6 @@
 #!/bin/sh
 set -e
 
-# pull latest changes
-git pull
-
 # shut down current version while updating
 pm2 kill
 
