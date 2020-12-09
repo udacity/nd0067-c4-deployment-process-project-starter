@@ -5,3 +5,11 @@ jobs:
       - image: circleci/node:14
     steps:
       - checkout
+      - run:
+          name: Install Front-End Dependencies
+          command: |
+            npm run frontend:install
+      - run:
+          name: Install api Dependencies
+          command: |
+            npm run api:install
