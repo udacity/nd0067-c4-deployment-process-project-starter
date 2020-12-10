@@ -3,36 +3,23 @@ jobs:
   build:
     docker:
       - image: circleci/node:14
-    steps:
-      - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - "S21:0e:05:d7:57:b7:1d:57:bd:33:9f:9b:1f:d0:54:80"
-      # - run:
-      #     name: Install Front-End Dependencies
-      #     command: |
-      #       cd starter && npm run frontend:install
-      # - run:
-      #     name: Install api Dependencies
-      #     command: |
-      #       cd starter && npm run api:install
-      # - run:
-      #     name: Front-End Lint
-      #     command: |
-      #       cd starter && npm run frontend:lint
-      # - run:
-      #     name: Front-End Build
-      #     command: |
-      #       cd starter && npm run frontend:build
-      # - run:
-      #     name: Api Build
-      #     command: |
-      #       cd starter && npm run api:build
       - run:
-          name: deploy
+          name: Install Front-End Dependencies
           command: |
-            # ls ~/.ssh/config
-            EC2_USERNAME=ecs-user
-            EC2_PUBLIC_DNS=ec2-3-89-65-174.compute-1.amazonaws.com
-            ssh -o StrictHostKeyChecking=no $EC2_USERNAME@$EC2_PUBLIC_DNS \ 
-            cd udagram/starter && git pull && bin/deploy.sh
+            cd starter && npm run frontend:install
+      - run:
+          name: Install api Dependencies
+          command: |
+            cd starter && npm run api:install
+      - run:
+          name: Front-End Lint
+          command: |
+            cd starter && npm run frontend:lint
+      - run:
+          name: Front-End Build
+          command: |
+            cd starter && npm run frontend:build
+      - run:
+          name: Api Build
+          command: |
+            cd starter && npm run api:build
