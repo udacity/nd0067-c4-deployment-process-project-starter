@@ -8,7 +8,7 @@
     "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test --watch=false",
-    "lint": "ng lint",
+    "lint": "ng lint --fix",
     "e2e": "ng e2e",
     "prod": "cd www && serve"
   },
