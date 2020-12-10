@@ -5,6 +5,9 @@ jobs:
       - image: circleci/node:14
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "S21:0e:05:d7:57:b7:1d:57:bd:33:9f:9b:1f:d0:54:80"
       - run:
           name: Install Front-End Dependencies
           command: |
