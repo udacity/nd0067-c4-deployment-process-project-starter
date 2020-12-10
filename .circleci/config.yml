@@ -3,6 +3,8 @@ jobs:
   build:
     docker:
       - image: circleci/node:14
+    steps:
+      - checkout
       - run:
           name: Install Front-End Dependencies
           command: |
