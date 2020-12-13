@@ -46,10 +46,10 @@ workflows:
   udagram:
     jobs:
       - build
-      - hold:
+      - Trigger Deployment:
           type: approval
           requires:
             - build
       - deploy:
           requires:
-            - hold
+            - Trigger Deployment
