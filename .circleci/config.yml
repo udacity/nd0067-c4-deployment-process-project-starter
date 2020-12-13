@@ -31,8 +31,6 @@ jobs:
           command: |
             npm run api:build
   deploy:
-    requires:
-      - approval
     docker:
       - image: "cimg/base:stable"
     steps:
