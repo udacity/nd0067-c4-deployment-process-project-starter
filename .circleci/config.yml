@@ -1,11 +1,13 @@
 version: 2.1
 orbs:
+  node: circleci/node@4.1.0
   eb: circleci/aws-elastic-beanstalk@1.0.0
 jobs:
   build:
     docker:
-      - image: circleci/node:14
+      - image: "cimg/base:stable"
     steps:
+      - node/install
       - checkout
       # - run:
       #     name: Install Front-End Dependencies
