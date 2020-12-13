@@ -35,8 +35,8 @@ jobs:
     requires:
       - build
   deploy:
-    requires:
-      - promotion
+    # requires:
+    #   - promotion
     docker:
       - image: "cimg/base:stable"
     steps:
