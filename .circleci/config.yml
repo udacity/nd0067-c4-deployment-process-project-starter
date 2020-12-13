@@ -30,7 +30,13 @@ jobs:
           name: API Build
           command: |
             npm run api:build
+  approval:
+    type: approval
+    requires:
+      - build
   deploy:
+    requires:
+      - approval
     docker:
       - image: "cimg/base:stable"
     steps:
@@ -46,4 +52,5 @@ workflows:
   udagram:
     jobs:
       - build
+      - approval
       - deploy
