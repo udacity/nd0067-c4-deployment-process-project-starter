@@ -27,17 +27,7 @@ jobs:
           name: API Build
           command: |
             npm run api:build
-  deploy:
-    docker:
-      - image: circleci/node:14
-    steps:
-      - checkout
       - run:
           name: Deploy API
           command: |
             npm run api:deploy
-workflows:
-  udagram-workflow:
-    jobs:
-      - build
-      - deploy
