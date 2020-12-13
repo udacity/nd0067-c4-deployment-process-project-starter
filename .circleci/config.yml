@@ -9,8 +9,6 @@ jobs:
       - image: "cimg/base:stable"
     steps:
       - node/install
-      - eb/setup
-      - aws-cli/setup
       - checkout
       - run:
           name: Install Front-End Dependencies
@@ -32,8 +30,21 @@ jobs:
           name: API Build
           command: |
             npm run api:build
-
+  promotion:
+    type: approval
+    requires:
+      - build
+  deploy:
+    requires:
+      - promotion
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - node/install
+      - eb/setup
+      - aws-cli/setup
+      - checkout
       - run:
-          name: Deploy API
+          name: Deploy App
           command: |
             npm run deploy
