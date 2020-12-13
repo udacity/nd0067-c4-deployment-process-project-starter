@@ -28,6 +28,8 @@ jobs:
           command: |
             npm run api:build
   deploy:
+    docker:
+      - image: circleci/node:14
     steps:
       - checkout
       - run:
