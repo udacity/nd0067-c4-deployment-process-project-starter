@@ -32,8 +32,6 @@ jobs:
             npm run api:build
   promotion:
     type: approval
-    requires:
-      - build
   deploy:
     # requires:
     #   - promotion
