@@ -1,41 +1,20 @@
-version: 2.1
+version: "2.1"
 orbs:
   eb: circleci/aws-elastic-beanstalk@1.0.0
-jobs:
-  build:
-    docker:
-      - image: circleci/node:14
-    steps:
+  node: circleci/node@4.1.0
+workflows:
+  elastic-beanstalk-workflow:
+    jobs:
       - checkout
-      # - run:
-      #     name: Install Front-End Dependencies
-      #     command: |
-      #       npm run frontend:install
       - run:
           name: Install API Dependencies
           command: |
             npm run api:install
-      # - run:
-      #     name: Front-End Lint
-      #     command: |
-      #       npm run frontend:lint
-      # - run:
-      #     name: Front-End Build
-      #     command: |
-      #       npm run frontend:build
       - run:
           name: API Build
           command: |
             npm run api:build
-  deploy:
-    steps:
-      - checkout
       - run:
           name: Deploy API
           command: |
             npm run api:deploy
-workflows:
-  udagram-workflow:
-    jobs:
-      - build
-      - deploy
