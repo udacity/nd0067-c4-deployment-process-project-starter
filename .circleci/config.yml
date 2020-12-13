@@ -10,7 +10,7 @@ jobs:
           command: |
             npm run frontend:install
       - run:
-          name: Install api Dependencies
+          name: Install API Dependencies
           command: |
             npm run api:install
       - run:
@@ -22,6 +22,16 @@ jobs:
           command: |
             npm run frontend:build
       - run:
-          name: Api Build
+          name: API Build
           command: |
             npm run api:build
+  deploy:
+    docker:
+      - image: circleci/node:14
+    steps:
+      - checkout
+      - eb/setup
+      - run:
+          name: Deploy API
+          command: |
+            npm run api:deploy
