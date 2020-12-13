@@ -8,20 +8,20 @@ jobs:
       - run:
           name: Install Front-End Dependencies
           command: |
-            cd starter && npm run frontend:install
+            npm run frontend:install
       - run:
           name: Install api Dependencies
           command: |
-            cd starter && npm run api:install
+            npm run api:install
       - run:
           name: Front-End Lint
           command: |
-            cd starter && npm run frontend:lint
+            npm run frontend:lint
       - run:
           name: Front-End Build
           command: |
-            cd starter && npm run frontend:build
+            npm run frontend:build
       - run:
           name: Api Build
           command: |
-            cd starter && npm run api:build
+            npm run api:build
