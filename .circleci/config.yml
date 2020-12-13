@@ -30,10 +30,6 @@ jobs:
           name: API Build
           command: |
             npm run api:build
-  approval:
-    type: approval
-    requires:
-      - build
   deploy:
     requires:
       - approval
@@ -52,5 +48,9 @@ workflows:
   udagram:
     jobs:
       - build
-      - approval
-      - deploy
+      - approval:
+          type: approval
+          requires: build
+      - deploy:
+        requires:
+          - approval
