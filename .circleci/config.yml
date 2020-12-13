@@ -47,6 +47,10 @@ workflows:
     jobs:
       - build
       - Trigger Deployment:
+          filters:
+            branches:
+              only:
+                - main
           type: approval
           requires:
             - build
