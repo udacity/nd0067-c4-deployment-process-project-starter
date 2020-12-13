@@ -27,6 +27,7 @@ jobs:
           name: API Build
           command: |
             npm run api:build
+      - eb/setup
       - run:
           name: Deploy API
           command: |
