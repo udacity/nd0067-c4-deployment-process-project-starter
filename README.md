@@ -2,13 +2,13 @@
 
 
 
-In this project students will learn how to take a newly developed E-Commerce website built for a retailer and deploy it to a cloud service provider so that it is available to customers. They will use the aws console to start and configure the services the application needs such as a database to store product information and a web server allowing the site to be discovered by potential customers. They will modify their package.json scripts and replace hard coded secrets with environment variables in their code.
+In this project students will learn how to take a newly developed Full-Stack application built for a retailer and deploy it to a cloud service provider so that it is available to customers. They will use the aws console to start and configure the services the application needs such as a database to store product information and a web server allowing the site to be discovered by potential customers. They will modify their package.json scripts and replace hard coded secrets with environment variables in their code.
 
 After the initial setup, students will learn to interact with the services they started on aws and will deploy manually the application a first time to it. As they get more familiar with the services and interact with them through a CLI, students will gradually understand all the moving parts. 
 
 Students will then register for a free account on CircleCi and connect their Github account to it. Based on the manual steps used to deploy the app, students will write a config.yml file that will make the process reproducible in CircleCi. They will set up the process to be executed automatically based when code is pushed on the main Github branch.
 
-The project will also include writing documentation and runbooks covering the operations of the deployment process. Those runbooks will serve as a way to communicate with future developers and anybody involved in diagnosing outages of the E-Commerce application.
+The project will also include writing documentation and runbooks covering the operations of the deployment process. Those runbooks will serve as a way to communicate with future developers and anybody involved in diagnosing outages of the Full-Stack application.
 
 ## Getting Started
 
@@ -27,14 +27,23 @@ The project can run but is missing some information to connect to the database a
 
 - AWS CLI v2, v1 can work but was not tested for this project
 
+- A RDS database running Postgres.
+
+- A S3 bucket for hosting uploaded pictures.
+
 ```
 
 ### Installation
 
-Step by step explanation of how to get a dev environment running.
 
-List out the steps
+Provision the necessary AWS services needed for running the application:
 
+
+
+
+1. In AWS, provision a publicly available RDS database running Postgres. <Place holder for link to classroom article>
+1. In AWS, provision a s3 bucket for hosting the uploaded files. <Place holder for tlink to classroom article>
+1. Export the ENV variables needed or use a package like [dotnev](https://www.npmjs.com/package/dotenv)/.
 1. From the root of the repo, navigate udagram-api folder `cd starter/udagram-api` to install the node_modules `npm install`. After installation is done start the api in dev mode with `npm run dev`.
 1. Without closing the terminal in step 1, navigate to the udagram-frontend `cd starter/udagram-frontend` to intall the node_modules `npm install`.  After installation is done start the api in dev mode with `npm run start`.
 
