@@ -1,4 +1,4 @@
-# Hosting a Full stack E-Commerce Application
+# Hosting a Full-Stack Application
 
 
 
