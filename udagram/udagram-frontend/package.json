@@ -9,7 +9,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy-after-build" : "aws s3 cp --recursive www s3://udagram-ppl"
   },
   "private": true,
   "dependencies": {

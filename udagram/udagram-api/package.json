@@ -2,7 +2,7 @@
   "name": "udagram-api",
   "version": "2.0.0",
   "description": "",
-  "main": "src/server.js",
+  "main": "server.js",
   "scripts": {
     "start": "node .",
     "tsc": "tsc",
@@ -10,7 +10,8 @@
     "prod": "tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
     "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy-after-build" : "eb deploy"
   },
   "keywords": [],
   "author": "Gabriel Ruttner",
