@@ -4,7 +4,9 @@
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "browser": {
-    "fs": false
+    "fs": false,
+    "os": false,
+    "path": false
   },
   "scripts": {
     "ng": "ng",
@@ -13,7 +15,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy-after-build": "aws s3 cp --recursive www s3://udagram-ppl"
+    "deploy": "aws s3 cp --recursive www s3://udagram-ppl"
   },
   "private": true,
   "dependencies": {
@@ -48,7 +50,6 @@
     "@typescript-eslint/eslint-plugin": "^2.20.0",
     "@typescript-eslint/parser": "^2.20.0",
     "codelyzer": "~4.5.0",
-    "dotenv": "^10.0.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.1.4",
