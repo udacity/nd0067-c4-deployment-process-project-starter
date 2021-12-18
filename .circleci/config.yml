@@ -16,7 +16,7 @@ workflows:
 
 jobs:
   backend:
-    working_directory: ~/project/udagram/udagram-api
+    working_directory: ~/udagram/udagram-api
     docker:
       - image: "cimg/base:stable"
     steps:
@@ -35,7 +35,7 @@ jobs:
           command: |
             eb deploy $AWS_EB_BACKEND
   frontend:
-    working_directory: ~/project/udagram/udagram-frontend
+    working_directory: ~/udagram/udagram-frontend
     docker:
       - image: "cimg/base:stable"
     steps:
