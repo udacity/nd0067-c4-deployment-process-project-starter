@@ -11,17 +11,23 @@ orbs:
 workflows:
   backend_frontend:
     jobs:
+      - project_checkout
       - backend
       - frontend
 
 jobs:
+  project_checkout:
+    working_directory: ~/project
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - checkout
   backend:
-    working_directory: ./udagram/udagram-api
+    working_directory: ~/project/udagram/udagram-api
     docker:
       - image: "cimg/base:stable"
     steps:
       - node/install
-      - checkout
       - run:
           name: Install backend dependencies
           command: |
@@ -35,12 +41,11 @@ jobs:
           command: |
             eb deploy $AWS_EB_BACKEND
   frontend:
-    working_directory: ./udagram/udagram-frontend
+    working_directory: ~/project/udagram/udagram-frontend
     docker:
       - image: "cimg/base:stable"
     steps:
       - node/install
-      - checkout
       - run:
           name: Install frontend dependencies
           command: |
