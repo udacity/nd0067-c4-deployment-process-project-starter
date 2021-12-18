@@ -12,12 +12,15 @@ workflows:
   backend_frontend:
     jobs:
       - project_checkout
-      - backend
-      - frontend
+      - backend:
+          requires:
+            - project_checkout
+      - frontend:
+          requires:
+            - project_checkout
 
 jobs:
   project_checkout:
-    working_directory: ~/project
     docker:
       - image: "cimg/base:stable"
     steps:
