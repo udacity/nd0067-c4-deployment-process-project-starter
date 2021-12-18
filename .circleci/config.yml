@@ -1,0 +1,54 @@
+# This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
+version: 2.1
+
+# Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
+# See: https://circleci.com/docs/2.0/orb-intro/
+orbs:
+  node: circleci/node@4.7
+  aws-cli: circleci/aws-cli@2.0.6
+  eb: circleci/aws-elastic-beanstalk@2.0.1
+
+workflows:
+  backend_frontend:
+    jobs:
+      - backend
+      - frontend
+
+jobs:
+  backend:
+    working_directory: ~/project/udagram/udagram-api
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - node/install
+      - checkout
+      - run:
+          name: Install backend dependencies
+          command: |
+            npm install
+      - run:
+          name: Build backend
+          command: npm run build
+      - eb/setup
+      - run:
+          name: Deploy backend to Elastic Beanstalk
+          command: |
+            eb deploy $AWS_EB_BACKEND
+  frontend:
+    working_directory: ~/project/udagram/udagram-frontend
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - node/install
+      - checkout
+      - run:
+          name: Install frontend dependencies
+          command: |
+            npm install
+      - run:
+          name: Build frontend
+          command: npm run build
+      - aws-cli/install
+      - run:
+          name: Deploy frontend to S3 bucket
+          command: aws s3 cp --recursive --acl public-read ./www $AWS_S3_FRONTEND
