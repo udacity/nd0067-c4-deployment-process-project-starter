@@ -25,6 +25,9 @@ jobs:
       - image: "cimg/base:stable"
     steps:
       - checkout
+      - run:
+          name: Show contents of active directory
+          command: ls
   backend:
     working_directory: ~/project/udagram/udagram-api
     docker:
