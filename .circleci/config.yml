@@ -27,15 +27,15 @@ jobs:
       - checkout
       - run:
           name: Show contents of active directory
-          command: ls
+          command: |
+            ls
+            cd udagram
+            ls
   backend:
     working_directory: ~/project/udagram/udagram-api
     docker:
       - image: "cimg/base:stable"
     steps:
-      - run:
-          name: Show contents of active directory
-          command: ls
       - node/install
       - run:
           name: Install backend dependencies
