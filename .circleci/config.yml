@@ -34,6 +34,7 @@ jobs:
       - run:
           name: Deploy backend to Elastic Beanstalk
           command: |
+            eb init
             eb deploy $AWS_EB_BACKEND
   frontend:
     working_directory: ~/project/udagram/udagram-frontend
@@ -49,7 +50,9 @@ jobs:
             npm install
       - run:
           name: Build frontend
-          command: npm run build
+          command: |
+            export NODE_OPTIONS=--openssl-legacy-provider
+            npm run build
       - aws-cli/install
       - run:
           name: Deploy frontend to S3 bucket
