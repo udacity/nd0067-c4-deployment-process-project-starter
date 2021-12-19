@@ -35,8 +35,8 @@ jobs:
           name: Deploy backend to Elastic Beanstalk
           command: |
             cd www
-            eb init
-            eb deploy $AWS_EB_BACKEND
+            eb init --region $AWS_DEFAULT_REGION --platform node.js $AWS_EB_BACKEND
+            eb deploy
   frontend:
     working_directory: ~/project/udagram/udagram-frontend
     docker:
@@ -58,4 +58,4 @@ jobs:
       - run:
           name: Deploy frontend to S3 bucket
           command: |
-            aws s3 cp /www $AWS_S3_FRONTEND --recursive
+            aws s3 cp --recursive ./www $AWS_S3_FRONTEND 
