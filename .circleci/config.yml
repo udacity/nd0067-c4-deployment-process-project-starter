@@ -12,18 +12,9 @@ workflows:
   backend_frontend:
     jobs:
       - backend
+      - frontend
 
 jobs:
-  project_checkout:
-    docker:
-      - image: "cimg/base:stable"
-    steps:
-      - checkout
-      - run:
-          name: Show contents of active directory
-          command: |
-            cd /home/circleci/project/udagram/udagram-api
-            ls
   backend:
     working_directory: ~/project/udagram/udagram-api
     docker:
@@ -31,11 +22,6 @@ jobs:
     steps:
       - checkout:
           path: ~/project
-      - run:
-          name: Show contents of active directory
-          command: |
-            cd /home/circleci/project/udagram/udagram-api
-            ls
       - node/install
       - run:
           name: Install backend dependencies
@@ -54,6 +40,8 @@ jobs:
     docker:
       - image: "cimg/base:stable"
     steps:
+      - checkout:
+          path: ~/project
       - node/install
       - run:
           name: Install frontend dependencies
