@@ -11,10 +11,7 @@ orbs:
 workflows:
   backend_frontend:
     jobs:
-      - project_checkout
-      - backend:
-          requires:
-            - project_checkout
+      - backend
 
 jobs:
   project_checkout:
@@ -32,6 +29,8 @@ jobs:
     docker:
       - image: "cimg/base:stable"
     steps:
+      - checkout:
+          path: ~/project
       - run:
           name: Show contents of active directory
           command: |
