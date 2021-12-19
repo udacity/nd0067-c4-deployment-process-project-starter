@@ -33,6 +33,9 @@ jobs:
     docker:
       - image: "cimg/base:stable"
     steps:
+      - run:
+          name: Show contents of active directory
+          command: ls
       - node/install
       - run:
           name: Install backend dependencies
