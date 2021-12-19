@@ -25,8 +25,7 @@ jobs:
       - run:
           name: Show contents of active directory
           command: |
-            ls
-            cd udagram/udagram-api
+            cd /home/circleci/project/udagram/udagram-api
             ls
   backend:
     working_directory: ~/project/udagram/udagram-api
