@@ -34,7 +34,7 @@ jobs:
       - run:
           name: Deploy backend to Elastic Beanstalk
           command: |
-            eb init
+            cd www
             eb deploy $AWS_EB_BACKEND
   frontend:
     working_directory: ~/project/udagram/udagram-frontend
@@ -56,4 +56,5 @@ jobs:
       - aws-cli/install
       - run:
           name: Deploy frontend to S3 bucket
-          command: aws s3 cp --recursive --acl public-read ./www $AWS_S3_FRONTEND
+          command: |
+            aws s3 cp --recursive --acl public-read /www $AWS_S3_FRONTEND
