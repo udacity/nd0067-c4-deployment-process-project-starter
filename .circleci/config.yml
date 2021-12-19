@@ -32,6 +32,11 @@ jobs:
     docker:
       - image: "cimg/base:stable"
     steps:
+      - run:
+          name: Show contents of active directory
+          command: |
+            cd /home/circleci/project/udagram/udagram-api
+            ls
       - node/install
       - run:
           name: Install backend dependencies
