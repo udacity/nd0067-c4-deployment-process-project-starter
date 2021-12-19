@@ -15,9 +15,6 @@ workflows:
       - backend:
           requires:
             - project_checkout
-      - frontend:
-          requires:
-            - project_checkout
 
 jobs:
   project_checkout:
@@ -29,7 +26,7 @@ jobs:
           name: Show contents of active directory
           command: |
             ls
-            cd udagram
+            cd udagram/udagram-api
             ls
   backend:
     working_directory: ~/project/udagram/udagram-api
