@@ -1,5 +1,17 @@
 
 {
-    "scripts": {},
-    "devDependencies": {}
+    "scripts": {
+        "api:install": "cd udagram-api && npm i",
+        "api:build": "cd udagram-api && npm i && npm run build",
+        "frontend:install": "cd udagram-frontend && npm i",
+        "frontend:lint": "cd udagram-frontend && npm run lint",
+        "frontend:test": "cd udagram-frontend && npm run test",
+        "frontend:e2e": "cd udagram-frontend && npm run e2e",
+        "frontend:build": "cd udagram-frontend && npm run build"
+    },
+    "devDependencies": {},
+    "engines": {
+        "npm": ">=6.14.8",
+        "node": ">=14.18.1"
+      }
 }
