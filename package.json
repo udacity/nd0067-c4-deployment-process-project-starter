@@ -1,4 +1,3 @@
-
 {
     "scripts": {
         "api:install": "cd udagram-api && npm i",
@@ -7,7 +6,10 @@
         "frontend:lint": "cd udagram-frontend && npm run lint",
         "frontend:test": "cd udagram-frontend && npm run test",
         "frontend:build": "cd udagram-frontend && npm run build",
-        "deploy":  "chmod +x ./bin/deploy-api.sh && ./bin/deploy-api.sh",
-        "api:deploy":  "cd udagram-api && npm run deploy"
+        "deploy": "chmod +x ./bin/deploy-api.sh && ./bin/deploy-api.sh"
+    },
+    "engines": {
+        "npm": ">=6.14.8",
+        "node": ">=14.18.1"
     }
 }
