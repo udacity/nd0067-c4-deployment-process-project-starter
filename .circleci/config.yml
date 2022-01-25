@@ -53,8 +53,8 @@ jobs:
       - run:
            name: Deploy API
            command: |
-             eb use EB_ENV
-             eb deploy EB_APP
+             eb use $EB_ENV
+             eb deploy $EB_APP
 
 workflows:
   elastic-beanstalk-workflow:
