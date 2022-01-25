@@ -39,7 +39,7 @@ orbs:
 jobs:
   eb-demo:
     docker:
-      - image: cimg/base:stable
+      - image: cimg/node:16.13.1
     steps:
       - checkout
       - run:
