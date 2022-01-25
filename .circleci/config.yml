@@ -53,8 +53,8 @@ jobs:
       - run:
            name: Deploy API
            command: |
-             eb init --region $AWS_DEFAULT_REGION $EB_APP
-             eb deploy $EB_ENV
+             eb use EB_ENV
+             eb deploy EB_APP
 
 workflows:
   elastic-beanstalk-workflow:
