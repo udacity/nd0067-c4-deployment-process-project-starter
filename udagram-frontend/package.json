@@ -9,7 +9,8 @@
     "build": "ng build --configuration=production",
     "test": "ng test",
     "lint": "ng lint --fix",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e", 
+    "prod": "cd www && serve"
   },
   "private": true,
   "dependencies": {
