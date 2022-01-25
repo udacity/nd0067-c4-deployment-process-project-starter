@@ -1,0 +1,23 @@
+branch-defaults:
+  circleci-project-setup:
+    environment: Udagramapi-env
+deploy:
+  artifact: udagram-api/Archive.zip
+environment-defaults:
+  Udagramapi-env:
+    branch: null
+    repository: null
+global:
+  application_name: udagram-api
+  default_ec2_keyname: null
+  default_platform: Node.js 14 running on 64bit Amazon Linux 2
+  default_region: us-east-1
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: eb-cli
+  sc: git
+  workspace_type: Application
+deploy:   
+  artifact: udagram-api/www/Archive.zip
