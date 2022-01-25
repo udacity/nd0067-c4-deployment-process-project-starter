@@ -37,7 +37,7 @@ orbs:
 
 
 jobs:
-  eb-demo:
+  build:
     docker:
       - image: cimg/node:16.13.1
     steps:
@@ -53,15 +53,29 @@ jobs:
       - run:
           name: Deploy API
           command: npm run api:deploy
-          #    eb init --region us-east-1 udagram-api
-          #    eb use Udagramapi-env
-          #    eb deploy udagram-api
+      - run:
+          name: Front-End Install
+          command: npm run frontend:install
+      - run:
+          name: Front-End Build
+          command: |
+            npm run frontend:build
+      - aws-s3/sync:
+          arguments: |
+            --delete \
+            --acl public-read \
+            --cache-control "max-age=86400"
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-region: AWS_REGION
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+          from: udagram-frontend/www
+          to: 's3://udagramapplication'
 
 workflows:
-  elastic-beanstalk-workflow:
+  main:
     jobs:
-      - eb-demo:
+      - build:
           context: udagram_aws
-
-
-
+          filters:
+            branches:
+              only: master
