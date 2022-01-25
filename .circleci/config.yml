@@ -8,7 +8,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: 'cimg/node:16.3.1'
+      - image: cimg/node:16.3.1
     steps:
       - checkout
       - run: mkdir bucket && echo "lorem ipsum" > bucket/build_asset.txt
@@ -29,4 +29,5 @@ jobs:
 workflows:
   s3-example:
     jobs:
-      - build
+      - build:
+          context: udagram_aws
