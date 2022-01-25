@@ -55,7 +55,7 @@ jobs:
            command: |
              eb init --region us-east-1 udagram-api
              eb use Udagramapi-env
-             ed deploy udagram-api
+             eb deploy udagram-api
 
 workflows:
   elastic-beanstalk-workflow:
