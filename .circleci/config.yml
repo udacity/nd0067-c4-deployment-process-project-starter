@@ -6,12 +6,19 @@ orbs:
   eb: circleci/aws-elastic-beanstalk@2.0.1
 
 jobs:
-  build:
+  build-fe:
     docker:
       - image: cimg/node:16.13.1
     steps:
       - checkout
-      - run: mkdir bucket && echo "lorem ipsum" > bucket/build_asset.txt
+      - run:
+          name: Front-End Install
+          command: |
+            npm run frontend:install
+      - run:
+          name: Front-End Build
+          command: |
+            npm run frontend:build
       - aws-s3/sync:
           arguments: |
             --delete \
@@ -20,14 +27,14 @@ jobs:
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-region: AWS_REGION
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
-          from: bucket
+          from: www
           to: 's3://udagramapplication'
       # - aws-s3/copy:
       #     from: bucket/build_asset.txt
       #     to: 's3://udagramapplication'
 
 workflows:
-  s3-example:
+  deploy:
     jobs:
-      - build:
+      - build-fe:
           context: udagram_aws
