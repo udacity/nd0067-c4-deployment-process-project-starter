@@ -39,16 +39,23 @@ orbs:
 jobs:
   eb-demo:
     docker:
-      - image: 'cimg/base:stable'
+      - image: cimg/base:stable
     steps:
       - checkout
+      - run:
+          name: API Install
+          command: npm run api:install
+      - run:
+          name: API Build
+          command: |
+            npm run api:build
       - eb/setup
       - run:
-          command: |
-            eb init EB_ENV
-            eb deploy EB_ENV
-            eb status
-          name: You may now use the EB CLI within this job
+           name: Deploy API
+           command: |
+             eb init --region AWS_DEFAULT_REGION EB_APP
+             eb deploy EB_ENV
+
 workflows:
   elastic-beanstalk-workflow:
     jobs:
