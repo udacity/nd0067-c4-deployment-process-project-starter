@@ -52,8 +52,8 @@ jobs:
 workflows:
   elastic-beanstalk-workflow:
     jobs:
-      - eb-demo
-
+      - eb-demo:
+          context: udagram_aws
 
 
 
