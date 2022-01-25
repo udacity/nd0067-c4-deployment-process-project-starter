@@ -6,7 +6,7 @@
         "frontend:install": "cd udagram-frontend && npm i",
         "frontend:lint": "cd udagram-frontend && npm run lint",
         "frontend:test": "cd udagram-frontend && npm run test",
-        "frontend:build": "cd udagram-frontend && npm i && npm run build"
+        "frontend:build": "cd udagram-frontend && npm run build"
     },
     "devDependencies": {},
     "engines": {
