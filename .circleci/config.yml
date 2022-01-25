@@ -76,6 +76,4 @@ workflows:
     jobs:
       - build:
           context: udagram_aws
-          filters:
-            branches:
-              only: master
+
