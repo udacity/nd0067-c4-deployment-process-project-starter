@@ -51,11 +51,11 @@ jobs:
             npm run api:build
       - eb/setup
       - run:
-           name: Deploy API
-           command: |
-             eb init --region us-east-1 udagram-api
-             eb use Udagramapi-env
-             eb deploy udagram-api
+          name: Deploy API
+          command: npm run deploy
+          #    eb init --region us-east-1 udagram-api
+          #    eb use Udagramapi-env
+          #    eb deploy udagram-api
 
 workflows:
   elastic-beanstalk-workflow:
