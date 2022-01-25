@@ -12,6 +12,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Front-End Install
+          command: npm run frontend:install
+      - run:
           name: Front-End Build
           command: |
             npm run frontend:build
@@ -25,9 +28,6 @@ jobs:
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           from: udagram-frontend/www
           to: 's3://udagramapplication'
-      # - aws-s3/copy:
-      #     from: bucket/build_asset.txt
-      #     to: 's3://udagramapplication'
 
 workflows:
   deploy:
