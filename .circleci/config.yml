@@ -5,32 +5,55 @@ orbs:
   aws-s3: circleci/aws-s3@3.0
   eb: circleci/aws-elastic-beanstalk@2.0.1
 
+# jobs:
+  # build-fe:
+  #   docker:
+  #     - image: cimg/node:16.13.1
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: Front-End Install
+  #         command: npm run frontend:install
+  #     - run:
+  #         name: Front-End Build
+  #         command: |
+  #           npm run frontend:build
+  #     - aws-s3/sync:
+  #         arguments: |
+  #           --delete \
+  #           --acl public-read \
+  #           --cache-control "max-age=86400"
+  #         aws-access-key-id: AWS_ACCESS_KEY_ID
+  #         aws-region: AWS_REGION
+  #         aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+  #         from: udagram-frontend/www
+  #         to: 's3://udagramapplication'
+
+# workflows:
+#   deploy:
+#     jobs:
+#       - build-fe:
+#           context: udagram_aws
+
+
 jobs:
-  build-fe:
+  eb-demo:
     docker:
-      - image: cimg/node:16.13.1
+      - image: 'cimg/base:stable'
     steps:
       - checkout
+      - eb/setup
       - run:
-          name: Front-End Install
-          command: npm run frontend:install
-      - run:
-          name: Front-End Build
           command: |
-            npm run frontend:build
-      - aws-s3/sync:
-          arguments: |
-            --delete \
-            --acl public-read \
-            --cache-control "max-age=86400"
-          aws-access-key-id: AWS_ACCESS_KEY_ID
-          aws-region: AWS_REGION
-          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
-          from: udagram-frontend/www
-          to: 's3://udagramapplication'
-
+            eb init EB_ENV
+            eb deploy EB_ENV
+            eb status
+          name: You may now use the EB CLI within this job
 workflows:
-  deploy:
+  elastic-beanstalk-workflow:
     jobs:
-      - build-fe:
-          context: udagram_aws
+      - eb-demo
+
+
+
+
