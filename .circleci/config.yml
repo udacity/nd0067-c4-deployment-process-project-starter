@@ -22,7 +22,7 @@ jobs:
           from: bucket
           to: 's3://udagramapplication/prefix'
       - aws-s3/copy:
-          #arguments: '--dryrun'
+          arguments: '--delete'
           from: bucket/build_asset.txt
           to: 's3://udagramapplication'
 
