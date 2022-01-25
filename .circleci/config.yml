@@ -20,7 +20,7 @@ jobs:
           aws-region: AWS_REGION
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           from: bucket
-          to: 's3://udagramapplication'
+          to: 's3://udagramapplication/prefix'
       - aws-s3/copy:
           #arguments: '--dryrun'
           from: bucket/build_asset.txt
