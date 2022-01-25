@@ -52,7 +52,7 @@ jobs:
       - eb/setup
       - run:
           name: Deploy API
-          command: npm run deploy
+          command: npm run api:deploy
           #    eb init --region us-east-1 udagram-api
           #    eb use Udagramapi-env
           #    eb deploy udagram-api
