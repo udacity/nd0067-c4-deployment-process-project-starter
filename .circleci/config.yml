@@ -21,11 +21,10 @@ jobs:
           aws-region: AWS_REGION
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           from: bucket
-          to: 's3://udagramapplication/prefix'
-      - aws-s3/copy:
-          # arguments: '--delete'
-          from: bucket/build_asset.txt
           to: 's3://udagramapplication'
+      # - aws-s3/copy:
+      #     from: bucket/build_asset.txt
+      #     to: 's3://udagramapplication'
 
 workflows:
   s3-example:
