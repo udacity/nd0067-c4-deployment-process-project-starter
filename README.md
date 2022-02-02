@@ -13,6 +13,9 @@ Provision the necessary AWS services needed for running the application:
 1. From the root of the repo, run `npm run backend:install` to install the node_modules. After installation is done, navigate to udagram-api folder by running `cd udagram-api` and start the api in dev mode with `npm run dev`.
 1. Without closing the terminal in step 1, run `npm run frontend:install` to intall the node_modules. After installation is done, navigate to the udagram-frontend by running `cd udagram-frontend` and start the frontend in dev mode with `npm run start`.
 
+### circle ci pipeline status
+[![<ORG_NAME>](https://circleci.com/gh/choiyounyeong/udacity-deploy-fullstack-js-app.svg?style=svg)](<LINK>)
+
 ## Requirement of dependencies
 
 ```
