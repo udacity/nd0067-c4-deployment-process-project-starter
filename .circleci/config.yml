@@ -4,6 +4,14 @@ orbs:
   aws-cli: circleci/aws-cli@2.0.6
   eb: circleci/aws-elastic-beanstalk@2.0.1
 
+workflows:
+  all:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+
 jobs:
   build:
     docker:
