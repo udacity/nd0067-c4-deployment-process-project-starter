@@ -2,7 +2,7 @@
   "name": "udagram-api",
   "version": "2.0.0",
   "description": "",
-  "main": "src/server.js",
+  "main": "www/server.js",
   "scripts": {
     "start": "node .",
     "tsc": "tsc",
@@ -10,6 +10,9 @@
     "prod": "tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
     "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
+    "deploy":  "chmod +x ./bin/deploy.sh && ./bin/deploy.sh",
+    "deploy0"  :    "chmod +x ./bin/deploy.sh && sh ./bin/deploy.sh",
+
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -18,18 +21,23 @@
   "dependencies": {
     "@types/bcrypt": "^3.0.0",
     "@types/jsonwebtoken": "^8.3.2",
+    "aws": "^0.0.3-2",
     "aws-sdk": "^2.429.0",
     "bcrypt": "^5.0.1",
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.19.1",
+    "cli": "^1.0.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "eb": "^0.0.1",
     "email-validator": "^2.0.4",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.1",
+    "node": "^14.15.1",
     "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^5.21.4",
-    "sequelize-typescript": "^0.6.9"
+    "sequelize-typescript": "^0.6.9",
+    "zip": "^1.2.0"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.26",
