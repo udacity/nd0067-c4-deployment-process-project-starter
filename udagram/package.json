@@ -5,7 +5,6 @@
         "back-end-install":"cd nd0067-c4-deployment-process-project-starter/udagram/udagram-api && npm install",
         "front-end-build":"cd nd0067-c4-deployment-process-project-starter/udagram/udagram-frontend && npm run build",
         "back-end-build":"cd nd0067-c4-deployment-process-project-starter/udagram/udagram-api && npm run build",
-        "front-end-deploy":"cd nd0067-c4-deployment-process-project-starter/udagram/udagram-frontend && npm run deploy"
-              },
+        "front-end-deploy":"cd nd0067-c4-deployment-process-project-starter/udagram/udagram-frontend && npm run deploy"},
     "devDependencies": {}
 }
