@@ -1,0 +1,32 @@
+version: 2.1
+orbs:
+  node: circleci/node@4.1.0
+  aws-cli: circleci/aws-cli@1.3.1
+jobs:
+  build:
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - node/install
+      - checkout
+      - aws-cli/setup
+      - run:
+          name: Front-End Install
+          command: |
+            npm run front-end-install
+      - run:
+          name: Back-End Install
+          command: |
+            npm run back-end-install
+      - run:
+          name: Front-End Build
+          command: |
+            npm run front-end-build
+      - run:
+          name: Back-End Build
+          command: |
+            npm run back-end-build
+       - run:
+          name: Deploy App
+          command: |
+            npm run frontend:deploy      
