@@ -2,24 +2,28 @@
   "name": "udagram-api",
   "version": "2.0.0",
   "description": "",
-  "main": "src/server.js",
+  "engines": {
+    "node": "14.15.0"
+  },
+  "main": "src/server.ts",
   "scripts": {
-    "start": "node .",
-    "tsc": "tsc",
-    "dev": "ts-node-dev --respawn --transpileOnly ./src/server.ts",
-    "prod": "tsc && node ./www/server.js",
+    "start": "node ./www/server.js",
+    "tsc": "npx tsc",
+    "dev": "npx ts-node-dev --respawn --transpile-only ./src/server.ts",
+    "prod": "npx tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
-    "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
+    "deploy": "npm run build && eb list && eb use udagram-api-dev && eb deploy",
+    "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp -R .elasticbeanstalk www/.elasticbeanstalk && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Gabriel Ruttner",
   "license": "ISC",
   "dependencies": {
-    "@types/bcrypt": "^3.0.0",
+    "@types/bcryptjs": "2.4.2",
     "@types/jsonwebtoken": "^8.3.2",
     "aws-sdk": "^2.429.0",
-    "bcrypt": "^5.0.1",
+    "bcryptjs": "2.4.3",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
@@ -46,6 +50,6 @@
     "eslint-config-google": "^0.14.0",
     "mocha": "^6.1.4",
     "ts-node-dev": "^1.0.0-pre.32",
-    "typescript": "^3.3.4000"
+    "typescript": "^3.9.10"
   }
 }
