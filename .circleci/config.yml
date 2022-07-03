@@ -19,32 +19,23 @@ jobs:
       - run:
           name: Install Front-End Dependencies
           command: |
-            echo "NODE --version" 
-            echo $(node --version)
-            echo "NPM --version" 
-            echo $(npm --version)
-            npm run frontend:install
-      # TODO: Install dependencies in the the backend API          
+            npm run frontend:install        
       - run:
           name: Install API Dependencies
           command: |
-           echo "TODO: Install dependencies in the the backend API  "
-      # TODO: Lint the frontend
+            npm run api:install
       - run:
           name: Front-End Lint
           command: |
-            echo "TODO: Lint the frontend"
-      # TODO: Build the frontend app
+            npm run frontend:lint
       - run:
           name: Front-End Build
           command: |
-            echo "TODO: Build the frontend app"
-      # TODO: Build the backend API      
+            npm run frontend:build    
       - run:
           name: API Build
           command: |
-            echo "TODO: Build the backend API"
-  # deploy step will run only after manual approval
+            npm run api:build
   deploy:
     docker:
       - image: "cimg/base:stable"
@@ -57,10 +48,8 @@ jobs:
       - checkout
       - run:
           name: Deploy App
-          # TODO: Install, build, deploy in both apps
           command: |
-            echo "# TODO: Install, build, deploy in both apps"
-            
+            npm run deploy          
 workflows:
   udagram:
     jobs:
@@ -69,7 +58,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
           type: approval
           requires:
             - build
