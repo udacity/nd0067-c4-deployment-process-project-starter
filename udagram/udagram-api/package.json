@@ -7,7 +7,6 @@
   },
   "main": "src/server.ts",
   "scripts": {
-<<<<<<< HEAD:udagram/udagram-api/package.json
     "start": "node ./www/server.js",
     "tsc": "npx tsc",
     "dev": "npx ts-node-dev --respawn --transpile-only ./src/server.ts",
@@ -15,15 +14,6 @@
     "clean": "rm -rf www/ || true",
     "deploy": "npm run build && eb list && eb use udagram-api-dev && eb deploy",
     "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
-=======
-    "start": "node server.js",
-    "tsc": "tsc",
-    "dev": "ts-node-dev --respawn --transpileOnly ./src/server.ts",
-    "prod": "tsc && node ./www/server.js",
-    "clean": "rm -rf www/ || true",
-    "deploy": "npm install && npm run build && cd www && eb deploy",
-    "build": "npm run clean && tsc && cp -rf src/config www/config && cp -R .elasticbeanstalk www/.elasticbeanstalk && cp .npmrc www/.npmrc && cp package.json www/package.json",
->>>>>>> 77257f5710956c577a15ed7468cf4fec046c3760:udagram-api/package.json
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -36,11 +26,7 @@
     "bcryptjs": "2.4.3",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
-<<<<<<< HEAD:udagram/udagram-api/package.json
     "dotenv": "^8.6.0",
-=======
-    "dotenv": "^8.2.0",
->>>>>>> 77257f5710956c577a15ed7468cf4fec046c3760:udagram-api/package.json
     "email-validator": "^2.0.4",
     "express": "^4.16.4",
     "jsonwebtoken": "^8.5.1",
