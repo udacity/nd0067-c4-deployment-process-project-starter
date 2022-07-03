@@ -1,5 +1,6 @@
 version: 2.1
 orbs:
+<<<<<<< HEAD
   # orgs contain basc recipes and reproducible actions (install node, aws, etc.)
   node: circleci/node@5.0.2
   eb: circleci/aws-elastic-beanstalk@2.0.1
@@ -20,6 +21,22 @@ jobs:
           name: Install Front-End Dependencies
           command: |
             npm run frontend:install        
+=======
+  node: circleci/node@4.1.0
+  eb: circleci/aws-elastic-beanstalk@1.0.0
+  aws-cli: circleci/aws-cli@1.3.1
+jobs:
+  build:
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - node/install
+      - checkout
+      - run:
+          name: Install Front-End Dependencies
+          command: |
+            npm run frontend:install
+>>>>>>> 77257f5710956c577a15ed7468cf4fec046c3760
       - run:
           name: Install API Dependencies
           command: |
@@ -31,7 +48,11 @@ jobs:
       - run:
           name: Front-End Build
           command: |
+<<<<<<< HEAD
             npm run frontend:build    
+=======
+            npm run frontend:build
+>>>>>>> 77257f5710956c577a15ed7468cf4fec046c3760
       - run:
           name: API Build
           command: |
@@ -39,22 +60,35 @@ jobs:
   deploy:
     docker:
       - image: "cimg/base:stable"
+<<<<<<< HEAD
       # more setup needed for aws, node, elastic beanstalk
     steps:
       - node/install:
           node-version: '14.15' 
+=======
+    steps:
+      - node/install
+>>>>>>> 77257f5710956c577a15ed7468cf4fec046c3760
       - eb/setup
       - aws-cli/setup
       - checkout
       - run:
           name: Deploy App
           command: |
+<<<<<<< HEAD
             npm run deploy          
+=======
+            npm run deploy
+>>>>>>> 77257f5710956c577a15ed7468cf4fec046c3760
 workflows:
   udagram:
     jobs:
       - build
+<<<<<<< HEAD
       - hold:
+=======
+      - Trigger Deployment:
+>>>>>>> 77257f5710956c577a15ed7468cf4fec046c3760
           filters:
             branches:
               only:
@@ -64,4 +98,8 @@ workflows:
             - build
       - deploy:
           requires:
+<<<<<<< HEAD
             - hold
+=======
+            - Trigger Deployment
+>>>>>>> 77257f5710956c577a15ed7468cf4fec046c3760

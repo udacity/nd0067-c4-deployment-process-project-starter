@@ -6,11 +6,20 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+<<<<<<< HEAD:udagram/udagram-frontend/package.json
     "build": "ng build",
     "deploy": "sh bin/deploy.sh",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "ng lint --fix",
     "e2e": "ng e2e"
+=======
+    "build": "ng build --prod",
+    "deploy": "npm install && npm run build && chmod +x bin/deploy.sh && bin/deploy.sh",
+    "test": "ng test --watch=false",
+    "lint": "ng lint --fix",
+    "e2e": "ng e2e",
+    "prod": "cd www && serve"
+>>>>>>> 77257f5710956c577a15ed7468cf4fec046c3760:udagram-frontend/package.json
   },
   "private": true,
   "dependencies": {
