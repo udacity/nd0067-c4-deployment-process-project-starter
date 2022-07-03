@@ -1,9 +1,6 @@
-eb init test-app --region us-east-1 --platform node.js
-eb list 
-eb use test-app-env
-eb deploy test-app-env
-
-
+eb init $EB_APP --region $AWS_REGION --platform node.js
+eb use $EB_ENV
+eb deploy $EB_ENV
 
 
 
