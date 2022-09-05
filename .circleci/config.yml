@@ -26,13 +26,13 @@ jobs:
           command: npm run api:install
       - run:
           name: Build Front-End
-          command: npm run build:frontend
+          command: npm run frontend:build
       - run:
           name: Build Back-end
           command: npm run api:build
       - run:
           name: Deploy Front-End
-          command: npm run deploy:frontend
+          command: npm run frontend:deploy
       - run:
           name: Deploy Back-end
           command: npm run api:deploy
