@@ -23,19 +23,19 @@ jobs:
             npm run frontend:install
       - run:
           name: Install API Dependencies
-          command: npm run install:backend
+          command: npm run api:install
       - run:
           name: Build Front-End
           command: npm run build:frontend
       - run:
           name: Build Back-end
-          command: npm run build:backend
+          command: npm run api:build
       - run:
           name: Deploy Front-End
           command: npm run deploy:frontend
       - run:
           name: Deploy Back-end
-          command: npm run deploy:backend
+          command: npm run api:deploy
 workflows:
   build-deploy:
     jobs:
