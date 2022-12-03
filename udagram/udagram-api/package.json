@@ -7,7 +7,8 @@
   },
   "main": "server.ts",
   "scripts": {
-    "start": "node ./www/server.js",
+    "start": "node ./server.js",
+    "start:dev": "node ./www/server.js",
     "tsc": "npx tsc",
     "dev": "npx ts-node-dev --respawn --transpile-only ./src/server.ts",
     "prod": "npx tsc && node ./www/server.js",
@@ -32,16 +33,16 @@
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
-    "sequelize": "^6.5.0",
-    "sequelize-typescript": "^2.1.3"
+    "sequelize": "^6.26.0",
+    "sequelize-typescript": "^2.1.5"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.26",
     "@types/cors": "^2.8.6",
     "@types/express": "^4.16.1",
     "@types/node": "^11.11.6",
-    "@types/sequelize": "^4.27.44",
-    "@types/validator": "^10.9.0",
+    "@types/sequelize": "^4.28.14",
+    "@types/validator": "^13.7.10",
     "@typescript-eslint/eslint-plugin": "^2.19.2",
     "@typescript-eslint/parser": "^2.19.2",
     "chai": "^4.2.0",
