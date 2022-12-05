@@ -12,5 +12,9 @@
         "api:start": "cd udagram/udagram-api && npm run dev",
         "api:deploy": "cd udagram/udagram-api && npm run deploy",
         "deploy": "npm run api:deploy && npm run frontend:deploy"
+    },
+    "devDependencies": {
+        "@typescript-eslint/parser": "^5.45.1",
+        "typescript": "^4.9.3"
     }
 }
