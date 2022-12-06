@@ -1,12 +1,22 @@
 import { Sequelize } from "sequelize-typescript";
 import { config } from "./config/config";
 
-export const sequelize = new Sequelize({
-  username: config.username,
-  password: config.password,
-  database: config.database,
-  host: config.host,
+const {
+  username,
+  password,
+  rds_db_url,
+  posgres_port,
+  database
+} = config;
 
-  dialect: "postgres",
-  storage: ":memory:",
-});
+const stringUrl: string = `postgres://${username}:${password}@${rds_db_url}:${posgres_port}/postgres`;
+
+
+var options = {
+  host     : rds_db_url,
+  user     : username,
+  password : password,
+  port     : posgres_port
+}
+
+export const sequelize = new Sequelize(stringUrl);
