@@ -20,6 +20,9 @@
     ],
     "skipLibCheck": true
   },
+  "angularCompilerOptions": {
+    "enableIvy": false
+},
   "exclude": [
     "node_modules",
     "typings"
