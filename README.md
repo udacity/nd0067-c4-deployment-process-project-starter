@@ -77,7 +77,8 @@ The e2e tests are using Protractor and Jasmine.
   
   ![Alt text](./udagram/screenshots/RDS.png)
   ![Alt text](./udagram/screenshots/bucket-s3.png)
-  
+  ![Alt text](./udagram/screenshots/circle-ci.png.png) 
+  ![Alt text](./udagram/screenshots/deploy.png)
   
   ## frontend url:
   http://udagram-application.s3-website-us-east-1.amazonaws.com/index.html
