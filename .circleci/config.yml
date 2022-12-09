@@ -59,7 +59,7 @@ jobs:
           name: Deploy App
           # TODO: Install, build, deploy in both apps
           command: |
-           npm run api:deploy && npm run frontend:deploy
+           npm run deploy
             
 workflows:
   udagram:
