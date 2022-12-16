@@ -28,22 +28,22 @@ jobs:
       - run:
           name: Install API Dependencies
           command: |
-            cd udagram-api && npm install
+            npm run backend:install
       # TODO: Lint the frontend
       - run:
           name: Front-End Lint
           command: |
-            cd udagram-frontend && npm run lint -- --fix
+            npm run frontend:lint
       # TODO: Build the frontend app
       - run:
           name: Front-End Build
           command: |
-            cd udagram-frontend && npm install --force
+            npm run frontend:build
       # TODO: Build the backend API      
       - run:
           name: API Build
           command: |
-            cd udagram-api && npm run build
+            npm run backend:build
   # deploy step will run only after manual approval
   deploy:
     docker:
@@ -59,7 +59,7 @@ jobs:
           name: Deploy App
           # TODO: Install, build, deploy in both apps
           command: |
-            echo "# TODO: Install, build, deploy in both apps"
+            npm run app:all
             
 workflows:
   udagram:
