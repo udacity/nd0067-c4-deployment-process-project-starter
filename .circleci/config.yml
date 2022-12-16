@@ -13,7 +13,7 @@ jobs:
     steps:
       # install node and checkout code
       - node/install:
-          node-version: '14.15'         
+          node-version: '14.15'
       - checkout
       # Use root level package.json to install dependencies in the frontend app
       - run:
@@ -43,8 +43,7 @@ jobs:
       - run:
           name: API Build
           command: |
-            npm run api:install &&
-            npm run api:build
+            npm run api:install && npm run api:build
   # deploy step will run only after manual approval
   deploy:
     docker:
@@ -52,7 +51,7 @@ jobs:
       # more setup needed for aws, node, elastic beanstalk
     steps:
       - node/install:
-          node-version: '14.15' 
+          node-version: '14.15'
       - eb/setup
       - aws-cli/setup
       - checkout
@@ -61,7 +60,7 @@ jobs:
           # TODO: Install, build, deploy in both apps
           command: |
             npm run app:all
-            
+
 workflows:
   udagram:
     jobs:
