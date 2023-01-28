@@ -19,7 +19,6 @@ npm-debug.log*
 .tmp/
 .versions/
 coverage/
-www/
 node_modules/
 tmp/
 temp/
@@ -37,6 +36,7 @@ UserInterfaceState.xcuserstate
 node_modules
 venv/
 .env
+set_env.sh
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
