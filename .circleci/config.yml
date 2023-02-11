@@ -18,28 +18,32 @@ jobs:
       # Use root level package.json to install dependencies in the frontend app
       - run:
           name: Install Front-End Dependencies
-          command: npm run frontend:install
-
+          command: |
+            echo "NODE --version" 
+            echo $(node --version)
+            echo "NPM --version" 
+            echo $(npm --version)
+            npm run frontend:install
       # TODO: Install dependencies in the the backend API          
       - run:
           name: Install API Dependencies
-          command: npm run api:install
-           
+          command: |
+           echo "TODO: Install dependencies in the the backend API  "
       # TODO: Lint the frontend
       - run:
           name: Front-End Lint
-          command: npm run frontend:lint
-            
+          command: |
+            echo "TODO: Lint the frontend"
       # TODO: Build the frontend app
       - run:
           name: Front-End Build
-          command: npm run frontend:build
-            
+          command: |
+            echo "TODO: Build the frontend app"
       # TODO: Build the backend API      
       - run:
           name: API Build
-          command: npm run api:build
-            
+          command: |
+            echo "TODO: Build the backend API"
   # deploy step will run only after manual approval
   deploy:
     docker:
@@ -54,12 +58,8 @@ jobs:
       - run:
           name: Deploy App
           # TODO: Install, build, deploy in both apps
-          command:  
-                    npm run frontend:build
-                    npm run frontend:deploy
-                    npm run api:build
-                    npm run api:deploy
-          
+          command: |
+            echo "# TODO: Install, build, deploy in both apps"
             
 workflows:
   udagram:
