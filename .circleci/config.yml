@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  # orbs contain basc recipes and reproducible actions (install node, aws, etc.)
+  # orgs contain basc recipes and reproducible actions (install node, aws, etc.)
   node: circleci/node@5.0.2
   eb: circleci/aws-elastic-beanstalk@2.0.1
   aws-cli: circleci/aws-cli@3.1.1
@@ -13,7 +13,7 @@ jobs:
     steps:
       # install node and checkout code
       - node/install:
-          node-version: '14.15'         
+          node-version: '14.15.0'         
       - checkout
       # Use root level package.json to install dependencies in the frontend app
       - run:
@@ -27,9 +27,10 @@ jobs:
       # TODO: Install dependencies in the the backend API          
       - run:
           name: Install API Dependencies
-          command: |
-            echo "TODO: Install dependencies in the the backend API  "
-            npm run api:install
+          command: npm install
+      - run:
+          name: Build
+          command: npm run api:build
       # TODO: Lint the frontend
       - run:
           name: Front-End Lint
@@ -44,10 +45,35 @@ jobs:
             npm run frontend:build
       # TODO: Build the backend API      
       - run:
-          name: API Build
+          name: API Build 
           command: |
             echo "TODO: Build the backend API"
             npm run api:build
+      
+      - run:
+          name: Install pip
+          command: |
+            sudo apt update
+            sudo apt install -y python3-pip python-dev
+      - run:
+          name: Install AWS dependencies
+          command: |
+            sudo pip install awsebcli
+            sudo pip install awscli
+      # - run:
+      #     name: Configure AWS credentials
+      #     commands: |
+      #       aws co     
+      - run:
+          name: Deploy Api
+          # TODO: Install, build, deploy in both apps
+          command: npm run api:deploy
+      - run:
+          name: Deploy Frontend
+          # TODO: Install, build, deploy in both apps
+          command: npm run frontend:deploy
+      
+
   # deploy step will run only after manual approval
   deploy:
     docker:
@@ -55,16 +81,15 @@ jobs:
       # more setup needed for aws, node, elastic beanstalk
     steps:
       - node/install:
-          node-version: '14.15' 
+          node-version: '14.15.0' 
       - eb/setup
       - aws-cli/setup
       - checkout
       - run:
           name: Deploy App
           # TODO: Install, build, deploy in both apps
-          command: |
-            echo "# TODO: Install, build, deploy in both apps"
-            npm run deploy
+          command: npm run deploy
+            
 workflows:
   udagram:
     jobs:
