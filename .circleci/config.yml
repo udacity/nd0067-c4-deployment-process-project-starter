@@ -77,9 +77,6 @@ workflows:
           type: approval
           requires:
             - build
-      - cancel-other-hold:
-          requires:
-            - hold
       - deploy:
           requires:
             - hold
