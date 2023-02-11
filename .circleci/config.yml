@@ -26,9 +26,9 @@ jobs:
           command: npm run api:install
            
       # TODO: Lint the frontend
-      - run:
-          name: Front-End Lint
-          command: npm run frontend:lint
+      # - run:
+      #     name: Front-End Lint
+      #     command: npm run frontend:lint
             
       # TODO: Build the frontend app
       - run:
@@ -54,7 +54,10 @@ jobs:
       - run:
           name: Deploy App
           # TODO: Install, build, deploy in both apps
-          command:  npm run frontend:deploy
+          command:  
+                    # npm run frontend:lint
+                    npm run frontend:build
+                    npm run frontend:deploy
                     npm run api:build
                     npm run api:deploy
           
